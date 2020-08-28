@@ -1,0 +1,46 @@
+basePath: /test/v1/
+definitions:
+  main.Response:
+    properties:
+      test:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: 测试。
+  license: {}
+  title: 仓网规划
+  version: 1.0.0
+paths:
+  /api/v1/tags:
+    post:
+      parameters:
+      - description: Name
+        in: body
+        name: name
+        required: true
+        schema:
+          type: string
+      - description: State
+        in: body
+        name: state
+        schema:
+          type: integer
+      - description: CreatedBy
+        in: body
+        name: created_by
+        schema:
+          type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Add article tag
+swagger: "2.0"
