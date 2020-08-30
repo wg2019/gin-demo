@@ -1,8 +1,15 @@
 // Package router 路由
 package router
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+)
 
-func Router() gin.M {
+var engine = gin.New()
 
+// Engine 路由
+func Engine() *gin.Engine {
+	engine.Use(gin.Logger())
+	engine.Use(gin.Recovery())
+	return engine
 }
